@@ -1,0 +1,83 @@
+06-14-2023 Cucumber
+
+	RECAP
+
+	Scenario Outline:
+		- Must be followed with Examples
+		- It is dynamic way to cover multiple scenarios
+		- It is similar to DataProvider in TestNG
+		- We are using it when we need to run same tests against different data sets.
+
+
+	Scenario: It is summary of what needs to be tested
+	In the feature file, it is a single script in the feature file it only runs once
+
+	Scenario Outline: It is always followed by Example and we are using it when we need to run same tests against different data sets.
+
+	Background: Allows us to execute common steps before each Scenario in the feature file.
+
+
+	1. Test-Driven Development Framework
+		a. programming language - java
+		b. build tool - Maven (Gradle, ANT)
+		c. dependencies, libraries and plugins
+
+		TestNG-based @Test annotation
+		1. Write scripts before developments starts.
+		2. Devs push the code, and execute and get failures
+		3. Development process
+		4. Execute the tests again, and give feedback to dev team about results of your tests.
+
+		Requirements: Jira(or visually from the Figma or similar tools)
+
+		Confluence is the Wikipedia of the company
+			- Onboarding process
+			- Branching strategies
+				{
+				<name>_<Ticket_Number>_<env>,
+				meerim_HG-10290_prod
+				}
+			- Policies of the company
+			- Test cases
+
+		Azure Devops = Wiki + Version Control + Project Management + Test Management + .NET Framework ( C# ) + Miro Board + DB
+
+		***QUESTION***
+		Where is the execution point ?
+
+		In TestNG xml files are the execution point.
+		We define our suits with the classes and methods to be executed.
+
+		Later, we integrate with our xml files with the maven using those profiles inside the pom.xml
+
+		So basically this helps us to run different profiles using Maven commands later to be integrated with the Jenkins profiles.
+
+
+
+
+	2. Behaviour-Driven Development Framework
+		a. programming language - java
+		b. build tool - Maven (Gradle, ANT)
+		c. dependencies, libraries and plugins
+
+		Behaviours -> Gherkin steps
+
+		Given -> pre-condition
+		When -> actions
+		Then -> assertion or validation
+		And -> continues actions of before condition
+
+
+		***QUESTION***
+		Where is the execution point ?
+
+		Runner is the starting point of execution of Cucumber BDD Framework
+
+		@RunWith(Cucumber.class)
+		@CucumberOptions(
+        	features = "src/test/resources/features",
+        	glue = "steps",
+        	tags = "@Wiki",
+        	dryRun = true/false,
+        	monochrome = true/false
+		)

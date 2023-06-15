@@ -1,0 +1,192 @@
+06-12-2023 Automation Frameworks
+
+
+Framework: Automation Framework is not a single tool or process, but it is a collection of tools and processes working together to support automated testing of any application.
+
+-Automation framework is a set of rules, regulations, and design patterns that we implement to build a project structure
+-It is used to increase code reusability, provide easy maintenance, and allows multiple users to work on same project
+-It is a constructive blend of various guidelines, coding standards, concepts, processes, practices, project hierarchies, reporting mechanism, test data injections etc. to pillar automation testing
+-It includes our folder structures, libraries, dependencies, test results, test data, resources
+
+Different Framework
+1. Test-Driven Framework
+2. Behavior-Driven Framework
+3. Data-Driven Framework
+4. Keyword-Driven Framework
+5. Hybrid Framework
+
+
+
+1. Test-Driven Development Framework
+-One of the core concept in this framework is @Test annotation
+
+
+
+
+Go to https://techglobal-training.com/js-exercises/exercise-3
+Validate the title is "JS Arrays"
+Validate the content is "In this chapter, you will practice JS Arrays"
+Validate that there is 10 exercise displayed with the names below
+	Exercise 01: Find sum
+
+
+
+public class JSArraysPage{
+
+	public JSArraysPage(){
+		PageFactory.initElements(Driver.getDriver(), this);
+	}
+
+	@FindBy()
+	public WebElement jsArraysHeading;
+
+	@FindBy()
+	public WebElement jsArrayscontent;
+
+	@FindBy()
+	public List<WebElement> jsArraysExercises;
+}
+
+
+public class Base{
+	public static JSArraysPage jsArraysPage;
+}
+
+
+public class JSArraysTest extends Base{
+	@BeforeMethod
+	public void setPage(){
+		driver.get("https://techglobal-training.com/js-exercises/js-arrays");
+
+		jsArraysPage = new JSArraysPage();
+	}
+
+	@Test(priority=1, description="TC123 Validate JS Arrays Page")
+	public void validateJSArrayPage(){
+		Assert.assertTrue(jsArraysPage.jsArraysHeading.isDisplayed());
+		.
+		.
+		.
+		.
+		.
+	}
+}
+
+
+
+
+Sprint 2 weeks
+Start day is Wednesday
+
+Wednesday -> read requirements and understand
+Thursday -> start creating test cases in JIRA
+Friday -> Get approval for the test cases
+
+Monday/Tuesday/Wednesday -> SHIFT-LEFT testing TDD approach
+
+
+Monday/Tuesday
+
+Wednesday 10 AM - DEMO - Sprint Review
+
+
+
+
+2. Keyword-Driven Framework
+- You don't need to code!
+
+
+3. Data-Driven Development Framework
+4. Hybrid Framework:  that framework uses advantages of different frameworks like DDD + TDD or DDD + BDD
+
+5. Behavior-Driven Development Framework
+-One of the core concept in this framework is focusing on user perspective
+
+
+TRADITIONAL WAY OF CREATING TEST CASES
+Go to https://techglobal-training.com/js-exercises/exercise-3
+Validate the title is "JS Arrays"
+Validate the content is "In this chapter, you will practice JS Arrays"
+Validate that there is 10 exercise displayed with the names below
+
+
+BDD WAY
+Given user is on "https://techglobal-training.com/js-exercises/exercise-3"
+Then user should see title as "JS Arrays"
+And user should 10 exercises
+
+BDD Syntax (Gherkin): Given, When, Then, And, But
+
+Given
+And
+And
+When
+And
+And
+Then
+And
+And
+
+
+Given user is on "https://techglobal-training.com/js-exercises/exercise-3"
+
+@Given("user is on {string}")
+public void userIsOn(String URL){
+	driver.get(URL);
+}
+
+
+
+
+
+CREATING A BDD FRAMEWORK
+- I read the requirements and see what would be the best set of tools to utilize for the framework.
+- I will see what company is using as technologies and also what their existing QA team is able to create quickly.
+
+
+-Decide the programming language: Java
+-Decide the build tool: Maven
+-TDD or BDD?: involvement of the team members, UI(BDD) or backend(TDD)
+-Decide automation tools: Selenium etc
+-Decide reporting tools and strategies etc
+-KICK OFF!
+
+
+
+
+
+Important packages in TDD framework:
+scripts
+pages
+utils
+
+
+Important packages in BDD framework:
+steps : actual source code
+pages : Page Object Model
+runners : executors
+utils : reusable components
+
+features : all the gherkin steps (Given, When, Then, And)
+
+What are the differences between Test Case, Test Script and Test Scenario?
+
+
+Scenario: Validate the title and url after search
+Given user navigates to "https://www.google.com"
+When user search for "Tesla"
+Then user should see "Tesla" in the url
+And user should see "Tesla" in the title
+
+
+AUTOMATION IN BDD FRAMEWORK:
+1. Create a feature file
+	-Every feature MUST start with a Feature
+2. Create your Scenario or Scenario Outline
+	-Every test MUST start with a Scenario or Scenario Outline
+	-Scenario should have meaningful name
+3. Write steps which also requires Page Object Model
+
+
+
+Cucumber framework does not allow inheritance in steps package!!!
