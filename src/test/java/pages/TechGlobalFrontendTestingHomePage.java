@@ -13,7 +13,7 @@ public class TechGlobalFrontendTestingHomePage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(css = "div[id*='card']")
+    @FindBy(css = ".content")
     public List<WebElement> cards;
 
     public void clickOnCard(String cardText){

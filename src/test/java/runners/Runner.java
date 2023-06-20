@@ -1,6 +1,5 @@
 package runners;
 
-
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
@@ -9,9 +8,12 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "steps",
-        tags = "@Regression",
-        dryRun = false
+        tags = "@Etsy",
+        dryRun = false,
+        monochrome = false,
+        plugin = {"pretty",
+                "html:target/cucumber-reports/Cucumber.html",
+                "json:target/cucumber-reports/Cucumber.json"}
 )
-
 public class Runner {
 }

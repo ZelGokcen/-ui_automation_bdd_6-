@@ -23,8 +23,8 @@ public class BaseSteps {
 
     @Then("user should see {string} in the url")
     public void userShouldSeeInTheUrl(String key) {
-//        String newKey = driver.getCurrentUrl().replaceAll("_", " ");
-//        Assert.assertTrue(newKey.contains(key));
+    // String newKey = driver.getCurrentUrl().replaceAll("_", " ");
+    // Assert.assertTrue(newKey.contains(key));
 
         for(String word : key.split(" ")){
             Assert.assertTrue(driver.getCurrentUrl().contains(word));
